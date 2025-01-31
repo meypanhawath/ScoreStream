@@ -73,7 +73,7 @@ using namespace std;
 
             case 1:
               
-              cout << "Empty!" << endl;
+              cout << "Empty" << endl;
               break;
             
             case 2:
@@ -121,7 +121,7 @@ using namespace std;
 
             case 1:
               
-              cout << "Testing" << endl;
+              cout << "Empty" << endl;
               break;
             
             case 2:
