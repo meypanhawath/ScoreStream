@@ -73,7 +73,7 @@ using namespace std;
 
             case 1:
               
-              cout << "Empty" << endl;
+              cout << "Empty!" << endl;
               break;
             
             case 2:
