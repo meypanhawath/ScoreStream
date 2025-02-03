@@ -36,27 +36,32 @@ using namespace std;
       cout << "  >>  ";
       cin >> menu;
 
-       if (menu == 1) {
-        
+       switch (menu) {
+
+        case 1:
+
         system ("cls");
          adminLogin();
-       }
-       else if (menu == 2) {
-        
+         break;
+
+        case 2:
+
         system ("cls");
-         studentPanel ();
-       }
-       else if (menu == 3) {
+         studentPanel();
+         break;
+
+        case 3:
         
         system ("cls");
          cout << "Exiting..." << endl;
-       }
-       else {
+         break;
+
+        default:
         
         system ("cls");
          cout << "Invalid Option. Try Again." << endl;
          goto MAINMENU;
-
+         break;
        }
  }
 
@@ -89,12 +94,12 @@ using namespace std;
 
  void adminPanel () {
          
-         
+    ADMINPANEL:   
       cout << " >>> ADMIN PANEL <<< " << endl;
       cout << "=---------------------=" << endl;
       cout << "| 1. Teacher Data     |" << endl;
-      cout << "| 3. Add Teacher Data |" << endl;
-      cout << "| 2. Student Data     |" << endl;
+      cout << "| 2. Add Teacher Data |" << endl;
+      cout << "| 3. Student Data     |" << endl;
       cout << "| 4. Add Student Data |" << endl;
       cout << "| 5. Back             |" << endl;
       cout << "=---------------------=" << endl;
@@ -102,10 +107,51 @@ using namespace std;
          int adminMenu; 
       cout << "  >>  ";
       cin >> adminMenu;
+
+       switch (adminMenu) {
+
+        case 1: 
+        
+        system ("cls");
+         cout << " 1. Teacher Data" << endl;
+         break;
+
+        case 2:
+        
+        system ("cls");
+         cout << " 2. Add Teacher Data" << endl;
+         break;
+
+        case 3:
+        
+        system ("cls");
+         cout << " 3. Student Data" << endl;
+         break;
+
+        case 4:
+        
+        system ("cls");
+         cout << " 4. Add Student Data" << endl;
+         break;
+
+        case 5:
+         
+        system ("cls");
+         mainMenu();
+         break;
+
+        default:
+        
+        system ("cls");
+         cout << "Invalid Option. Try Again" << endl;
+         goto ADMINPANEL;
+         break;
+       }
  }
 
   void studentPanel () {
 
+    STUDENTPANEL:
       cout << " >>> STUDENT PANEL <<< " << endl;
       cout << "=------------------------=" << endl;
       cout << "| 1. Checking The Result |" << endl;
@@ -116,4 +162,31 @@ using namespace std;
           int studentMenu;
       cout << "  >>  ";
       cin >> studentMenu;
+
+       switch (studentMenu) {
+
+        case 1: 
+
+        system ("cls");  
+         cout << " 1. Teacher Data" << endl;
+         break;
+
+        case 2:
+        
+        system ("cls");
+         cout << " 2. Add Teacher Data" << endl;
+         break;
+
+        case 3:
+         
+        system ("cls"); 
+         mainMenu();
+
+        default:
+
+        system ("cls");
+         cout << "Invalid Option. Try Again" << endl;
+         goto STUDENTPANEL;
+         break;
+       }
   }
