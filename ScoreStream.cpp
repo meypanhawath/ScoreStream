@@ -3,32 +3,18 @@
 using namespace std;
 
 // New Line
- void nl (int n) {
+ void nl(int n);
+// New Tap
+ void nt(int n);
 
-    for (int i=1; i<=n; i++) {
-
-        cout << endl;
-    }
- }
-// New Tab
- void nt (int n) {
-
-    for (int i=1; i<=n; i++) {
-
-        cout << "\t";
-    }
- }
-
- void result (string studentName, int age, string gender, int math, int phy, int bio, int att) {
-          
-        cout << "     >>>     Student Result     <<<        " << endl;
-        cout << " >> " << studentName << endl;
-        cout << " >> " << age << endl;
-        cout << " >> " << gender << endl;
-        cout << "=---------------------------------------=" << endl;
-        cout << "    Math  Physic   Biology   Attendant " << endl;
-        cout << "    " << math << "    " << phy << "      " << bio << "         " << att << endl;
-  }
+ void mainMenu(int menu);
+ void adminPanel(int adminChoice);
+ void studentPanel();
+ void studentInfo();
+ void studentScore();
+ void studentGrade();
+ void confirmChoice(char choiceInfo);
+ void displayResult(string studentName, int age, string gender, int math, int phy, int bio, int att);
  
  int main () {
 
@@ -38,28 +24,72 @@ using namespace std;
 
 // Declearation
       int age, math, phy, bio, score, grade, avg, att;
-      int main, adminChoice, studentChoice;
+      int menu, adminChoice, studentChoice;
       string studentName, gender, passCode;
       char choiceInfo;
+       
+      mainMenu(menu);
 
-// Main Menu
-      cout << "Welcome!" << endl;
+          
+    return 0;
 
+ }
+
+// Function New Line
+ void nl (int n) {
+
+    for (int i=1; i<=n; i++) {
+
+        cout << endl;
+    }
+ }
+
+// Function New Tap
+  void nt (int n) {
+
+    for (int i=1; i<=n; i++) {
+
+        cout << "\t";
+    }
+  }
+
+ void mainMenu (int menu) {
+      
       MAINMENU:
+      cout << " >>> ScoreStream <<< " << endl;
       cout << "1. Admin Panel" << endl;
       cout << "2. Student Panel" << endl;
       cout << "  >>  ";
-      cin >> main;
+      cin >> menu;
 
-      if (main == 1) {
+      if (menu == 1) {
+
+        const int passCode = 2112;
+        int userPasscode = 0;
         
-        ADMINPANEL:
-        cout << " >>> Admin Panel <<< " << endl;
-        cout << "Passcode : ";
-        cin >> passCode;
+        ADMINPASS:
+        cout << "Enter Password" << endl;
+        cout << "  >>  ";
+        cin >> userPasscode;
 
-        if (passCode == "2112") {
-          
+          if (userPasscode == passCode) {
+
+            adminPanel();
+          }
+          else {
+
+            cout << "Invalid Password. Try again" << endl;
+            goto ADMINPASS;
+          }
+      }
+      else if (menu == 2) {
+
+        studentPanel();
+      }
+ void adminPanel (int adminChoice) {
+
+      int adminChoice;
+
           ADMINMENU:
           cout << "Welcome Admin!" << endl;
           cout << "1. Add Student Info" << endl;
@@ -100,15 +130,11 @@ using namespace std;
               break;
           }
         }
-        else {
-          
-          system ("cls");
-          cout << "Wrong Passcode. Try Again!!!"; nl (2);
-          goto ADMINPANEL;
-        }
-      }
-      else if (main == 2) {
-        
+
+ void studentPanel () {
+
+   int studentChoice;
+
         STUDENTMENU:
         cout << "Welcome Student!" << endl;
         cout << "1. Checking Result" << endl;
@@ -143,17 +169,9 @@ using namespace std;
               break;
           }
       }
-      else {
+ void studentInfo (string studentName, int age, string gender) {
 
-        system ("cls");
-        cout << "Invalid input. Try again"; nl(3);
-        goto MAINMENU;
-      }
-// Admin Panel
-
-// Student Panel
-      INFO:
-     nt(2); cout << " >>> Student INFO <<< "; nl (3);
+    nt(2); cout << " >>> Student INFO <<< "; nl (3);
       cout << "Student Name: ";
       cin >> studentName;
       cout << "Student Age: ";
@@ -162,29 +180,12 @@ using namespace std;
       cin >> gender;
       nl (3);
 
-      CONFIRMINFO:
-      cout << "Student Info Confirm? [y] Yes or [n] No." << endl;
-      cout << " >>  ";
-      cin >> choiceInfo;
+    confirmChoice();
+ }
 
-      if (choiceInfo == 'Y' || choiceInfo == 'y') {
+ void studentScore (int math, int phy, int bio, int att) {
 
-        goto SCORE;
-      }
-      else if (choiceInfo == 'N' || choiceInfo == 'n') {
-        
-        system ("cls");
-        goto INFO;
-      }
-      else {
-
-        cout << "Invalid Input. Please choose [y] to CONFIRM or [n] to Back to Student Info." << endl;
-        goto CONFIRMINFO;
-
-      }
-// STUDENT's Score Panel
-      SCORE:
-      nt (2); cout << " >>> Student Score <<< "; nl (2);
+    nt (2); cout << " >>> Student Score <<< "; nl (2);
       cout << "Math : ";
       cin >> math;
       cout << "Physic : ";
@@ -194,44 +195,78 @@ using namespace std;
       cout << "Attendant : ";
       cin >> att;
 
-      cout << "Student Score Confirm? [y] Yes or [n] No." << endl;
+    confirmChoice();
+ }
+
+ void confirmChoice (char choiceInfo) {
+ 
+      CONFIRM:
+      cout << "Student Info Confirm? [y] Yes or [n] No." << endl;
       cout << " >>  ";
       cin >> choiceInfo;
 
       if (choiceInfo == 'Y' || choiceInfo == 'y') {
+             
+             system ("cls");
+             studentScore();
+      }
+      else if (choiceInfo == 'N' || choiceInfo == 'n') {
+        
+        system ("cls");
+      }
+      else {
+
+        cout << "Invalid Input. Please choose [y] to CONFIRM or [n] to Back to Student Info." << endl;
+        goto CONFIRM;
+      }
+
+ }
+// Function Display Result
+ void displayResult (string studentName, int age, string gender, int math, int phy, int bio, int att) {
+
+        cout << "     >>>     Student Result     <<<        " << endl;
+        cout << " >> Name   : " << studentName << endl;
+        cout << " >> Age    : " << age << endl;
+        cout << " >> Gender : " << gender << endl;
+        cout << "=---------------------------------------=" << endl;
+        cout << "    Math  Physic   Biology   Attendant " << endl;
+        cout << "    " << math << "    " << phy << "      " << bio << "         " << att << endl;
+ }
+  
+  void studentGrade (int score, int avg) {
 
         score = math + phy + bio + att; 
         avg = score / 4;
 
-        if (avg > 90) {
+        if (avg >= 90) {
 
         system ("cls");
-        
-        result(studentName, age, gender, math, phy, bio, att);
+
+        displayResult(studentName, age, gender, math, phy, bio, att);
         cout << " Congratulation, You're passed GRADE A. " << endl;
         cout << "=---------------------------------------=" << endl;
     }
-    else if (avg > 80) {
+    else if (avg >= 80) {
 
         system ("cls");
         
-        result(studentName, age, gender, math, phy, bio, att);
+        displayResult(studentName, age, gender, math, phy, bio, att);
         cout << " Congratulation, You're passed GRADE B. " << endl;
         cout << "=---------------------------------------=" << endl;
     }
-    else if (avg > 70) {
+    else if (avg >= 70) {
 
         system ("cls");
         
-        result(studentName, age, gender, math, phy, bio, att);
+        displayResult(studentName, age, gender, math, phy, bio, att);
         cout << " Congratulation, You're passed GRADE C. " << endl;
         cout << "=---------------------------------------=" << endl;
     }
-    else if (avg > 60) {
+    else if (avg >= 60) {
 
         system ("cls");
         
-        result(studentName, age, gender, math, phy, bio, att);
+        displayResult(studentName, age, gender, math, phy, bio, att);
         cout << " Congratulation, You're passed GRADE D. " << endl;
         cout << "=---------------------------------------=" << endl;
     }
@@ -239,7 +274,7 @@ using namespace std;
 
         system ("cls");
         
-        result(studentName, age, gender, math, phy, bio, att);
+        displayResult(studentName, age, gender, math, phy, bio, att);
         cout << " Congratulation, You're passed GRADE E. " << endl;
         cout << "=---------------------------------------=" << endl;
     }
@@ -247,7 +282,7 @@ using namespace std;
 
         system ("cls");
         
-        result(studentName, age, gender, math, phy, bio, att);
+        displayResult(studentName, age, gender, math, phy, bio, att);
         cout << " Congratulation, You're passed GRADE F. " << endl;
         cout << "=---------------------------------------=" << endl;
     }
@@ -263,6 +298,6 @@ using namespace std;
         cout << "Invalid Input. Please choose [y] to CONFIRM or [n] to Back to Student Info." << endl;
         goto CONFIRMINFO;
 
-    }  
-    return 0;
- }
+    }
+  }
+ 
