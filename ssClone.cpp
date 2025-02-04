@@ -222,6 +222,6 @@ using namespace std;
        cin >> physic; cout << endl;
        cout << " Chemistry : " << endl;
        cin >> chemistry; cout << endl;
-       cout << " Attendance : " << endl;
+       cout << " Attendance: " << endl;
        cin >> attendance; cout << endl;
  }
