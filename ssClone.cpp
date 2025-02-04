@@ -1,4 +1,7 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
+
 
 using namespace std;
 
@@ -12,6 +15,7 @@ using namespace std;
  void confirmChoice();
  void displayResult();
  void loadingBar();
+ void sleep(int ms);
 
  int main () {
      
@@ -60,12 +64,13 @@ using namespace std;
         default:
         
         system ("cls");
-         cout << "Invalid Option. Try Again." << endl;
-         _sleep(1500);
+         cout << "Invalid Option." << endl;
+         cout << "Try again." << endl;
+         sleep(1500);
         system ("cls");
          break;
        }
-    }while (menu > 3); 
+    }while (menu < 1 || menu > 3); 
  }
 
  void adminLogin () {
@@ -84,14 +89,18 @@ using namespace std;
          
         system ("cls"); 
          cout << "Login Successfully!" << endl;
+         cout << "Please wait..." << endl;
+         sleep(1500);
+        system ("cls");
 
           adminPanel ();
        }
        else {
         
         system ("cls");
-         cout << "Passcode not recognized. Try again." << endl;
-         _sleep(1500);
+         cout << "Passcode not recognized." << endl;
+         cout << "Try again." << endl;
+         sleep(1500);
         system ("cls");
        }
    }while(userPasscode != 2112);
@@ -149,12 +158,13 @@ using namespace std;
         default:
         
         system ("cls");
-         cout << "Invalid Option. Try Again" << endl;
-         _sleep(1500);
+         cout << "Invalid Option." << endl;
+         cout << "Try again." << endl;
+         sleep(1500);
         system ("cls");
          break;
        }
-   }while(adminMenu > 6);
+   }while(adminMenu < 1 || adminMenu > 6);
  }
 
   void studentPanel () {
@@ -190,16 +200,18 @@ using namespace std;
          
         system ("cls"); 
          mainMenu();
+         break;
 
         default:
 
         system ("cls");
-         cout << "Invalid Option. Try Again" << endl;
-         _sleep(1500);
+         cout << "Invalid Option." << endl;
+         cout << "Try again." << endl;
+         sleep(1500);
         system ("cls");
          break;
        }
-   }while(studentMenu > 4);
+   }while(studentMenu < 1 || studentMenu > 4);
   }
 
  void studentInfo (string studentName, int age, string gender) {
@@ -224,4 +236,9 @@ using namespace std;
        cin >> chemistry; cout << endl;
        cout << " Attendance: " << endl;
        cin >> attendance; cout << endl;
+ }
+
+ void sleep (int ms) {
+
+   this_thread::sleep_for(chrono::milliseconds(ms));
  }
