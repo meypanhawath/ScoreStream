@@ -2,21 +2,21 @@
 
 using namespace std;
 
-
  void mainMenu();
  void adminPanel();
  void adminLogin();
  void studentPanel();
- void studentInfo();
+ void studentInfo(string studentName, int age, string gender);
  void studentScore();
  void studentGrade();
  void confirmChoice();
  void displayResult();
+ void loadingBar();
 
  int main () {
      
      system ("cls");
-
+     system ("color 9");
      mainMenu();
 
     return 0;
@@ -24,7 +24,9 @@ using namespace std;
 
  void mainMenu () {
     
-    MAINMENU:
+          int menu;
+
+    do {
       cout << " >>> SCORE STREAM <<< " << endl;
       cout << "=------------------=" << endl;
       cout << "| 1. Admin Panel   |" << endl;
@@ -32,7 +34,6 @@ using namespace std;
       cout << "| 3. Exit          |" << endl;
       cout << "=------------------=" << endl;
          
-         int menu;
       cout << "  >>  ";
       cin >> menu;
 
@@ -60,20 +61,23 @@ using namespace std;
         
         system ("cls");
          cout << "Invalid Option. Try Again." << endl;
-         goto MAINMENU;
+         _sleep(1500);
+        system ("cls");
          break;
        }
+    }while (menu > 3); 
  }
 
  void adminLogin () {
 
-    ADMINLOGIN:
+    const int passCode = 2112;
+          int userPasscode = 0;
+
+   do {
       cout << " ADMIN LOGIN " << endl;
       cout << "  Enter The Passcode " << endl;
       cout << "  >>  ";
 
-         const int passCode = 2112;
-         int userPasscode = 0;
       cin >> userPasscode;
 
        if (userPasscode == passCode) {
@@ -87,14 +91,17 @@ using namespace std;
         
         system ("cls");
          cout << "Passcode not recognized. Try again." << endl;
-         goto ADMINLOGIN;
+         _sleep(1500);
+        system ("cls");
        }
-
+   }while(userPasscode != 2112);
  }
 
  void adminPanel () {
-         
-    ADMINPANEL:   
+
+          int adminMenu;
+
+   do {
       cout << " >>> ADMIN PANEL <<< " << endl;
       cout << "=---------------------=" << endl;
       cout << "| 1. Teacher Data     |" << endl;
@@ -104,7 +111,6 @@ using namespace std;
       cout << "| 5. Back             |" << endl;
       cout << "=---------------------=" << endl;
 
-         int adminMenu; 
       cout << "  >>  ";
       cin >> adminMenu;
 
@@ -113,7 +119,7 @@ using namespace std;
         case 1: 
         
         system ("cls");
-         cout << " 1. Teacher Data" << endl;
+         cout << " 1. Teacher Data " << endl;
          break;
 
         case 2:
@@ -144,14 +150,18 @@ using namespace std;
         
         system ("cls");
          cout << "Invalid Option. Try Again" << endl;
-         goto ADMINPANEL;
+         _sleep(1500);
+        system ("cls");
          break;
        }
+   }while(adminMenu > 6);
  }
 
   void studentPanel () {
 
-    STUDENTPANEL:
+          int studentMenu;
+
+   do {
       cout << " >>> STUDENT PANEL <<< " << endl;
       cout << "=------------------------=" << endl;
       cout << "| 1. Checking The Result |" << endl;
@@ -159,7 +169,6 @@ using namespace std;
       cout << "| 3. Back                |" << endl;
       cout << "=------------------------=" << endl;
           
-          int studentMenu;
       cout << "  >>  ";
       cin >> studentMenu;
 
@@ -186,7 +195,33 @@ using namespace std;
 
         system ("cls");
          cout << "Invalid Option. Try Again" << endl;
-         goto STUDENTPANEL;
+         _sleep(1500);
+        system ("cls");
          break;
        }
+   }while(studentMenu > 4);
   }
+
+ void studentInfo (string studentName, int age, string gender) {
+       
+       cout << " >>> Student Info <<< " << endl;
+       cout << " Student Name : ";
+       cin >> studentName; cout << endl;
+       cout << "Student Age : ";
+       cin >> age; cout << endl;
+       cout << "Student Gender : ";
+       cin >> gender; cout << gender;
+ }
+
+ void studentScore (int math, int physic, int chemistry, int attendance) {
+
+       cout << " >>> Student Result <<< " << endl;
+       cout << " Math : ";
+       cin >> math; cout << endl;
+       cout << " Physic : ";
+       cin >> physic; cout << endl;
+       cout << " Chemistry : " << endl;
+       cin >> chemistry; cout << endl;
+       cout << " Attendance : " << endl;
+       cin >> attendance; cout << endl;
+ }

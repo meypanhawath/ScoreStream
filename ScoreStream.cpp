@@ -86,6 +86,11 @@ using namespace std;
 
         studentPanel();
       }
+      else {
+
+        cout << "Invalid input. Try again" << endl;
+        goto MAINMENU;
+      }
  void adminPanel (int adminChoice) {
 
       int adminChoice;
