@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Function
  void mainMenu();
  void adminPanel();
  void adminLogin();
@@ -16,6 +17,7 @@ using namespace std;
  void confirmChoice();
  void displayResult();
 
+// additional Function
  void loadingBar();
  void sleep(int ms);
  void cls();
@@ -23,6 +25,7 @@ using namespace std;
  void nl(int n);
  void t(int n);
 
+// Main Function
  int main () {
      
      cls();
@@ -37,6 +40,7 @@ using namespace std;
  void mainMenu () {
     
           int menu;
+          int delay = 3;
 
     do {
       nl(2); t(8); cout << "  >>> SCORE STREAM <<< " << endl;
@@ -67,7 +71,13 @@ using namespace std;
         case 3:
         
         cls();
-         cout << "Exiting..." << endl;
+             
+            nl(8); t(9); cout << "Exiting";
+          for (int i = 1; i <= delay; i++) {
+
+                cout << ".";
+             sleep(1500);
+          }
          break;
 
         default:
@@ -248,6 +258,7 @@ using namespace std;
        cin >> chemistry; cout << endl;
        cout << " Attendance: " << endl;
        cin >> attendance; cout << endl;
+       
  }
  void cls () {
 
