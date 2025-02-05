@@ -4,6 +4,12 @@
 #include <windows.h>
 #include <time.h>
 
+#define RESET "\033[0m"
+#define RED "\033[91m"
+#define CYAN "\033[36m"
+#define BLUE "\033[94m"
+#define GREEN "\033[32m"
+
 using namespace std;
 
 // Function
@@ -29,7 +35,7 @@ using namespace std;
  int main () {
      
      cls();
-     system ("color 9");
+     cout << BLUE;
 
      loadingBar();
      mainMenu();
@@ -71,7 +77,7 @@ using namespace std;
         case 3:
         
         cls();
-             
+                         cout << RED;
             nl(8); t(9); cout << "Exiting";
           for (int i = 1; i <= delay; i++) {
 
@@ -83,9 +89,11 @@ using namespace std;
         default:
         
         cls();
+         cout << RED;
          cout << "Invalid Option." << endl;
          cout << "Try again." << endl;
          sleep(1500);
+         cout << BLUE;
         cls();
          break;
        }
@@ -108,9 +116,11 @@ using namespace std;
        if (userPasscode == passCode) {
          
         cls(); 
+         cout << GREEN;
          cout << "Login Successfully!" << endl;
          cout << "Please wait..." << endl;
          sleep(1500);
+         cout << BLUE;
         cls();
 
           adminPanel ();
@@ -118,9 +128,11 @@ using namespace std;
        else {
         
         cls();
+         cout << RED;
          cout << "Passcode not recognized." << endl;
          cout << "Try again." << endl;
          sleep(1500);
+         cout << BLUE;
         cls();
        }
    }while(userPasscode != 2112);
@@ -179,9 +191,11 @@ using namespace std;
         default:
         
         cls();
+         cout << RED;
          cout << "Invalid Option." << endl;
          cout << "Try again." << endl;
          sleep(1500);
+         cout << BLUE;
         cls();
          break;
        }
@@ -227,9 +241,11 @@ using namespace std;
         default:
 
         cls();
+         cout << RED;
          cout << "Invalid Option." << endl;
          cout << "Try again." << endl;
          sleep(1500);
+         cout << BLUE;
         cls();
          break;
        }
