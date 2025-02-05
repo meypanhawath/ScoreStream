@@ -1,7 +1,8 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-
+#include <windows.h>
+#include <time.h>
 
 using namespace std;
 
@@ -14,13 +15,20 @@ using namespace std;
  void studentGrade();
  void confirmChoice();
  void displayResult();
+
  void loadingBar();
  void sleep(int ms);
+ void cls();
+ void pause();
+ void nl(int n);
+ void t(int n);
 
  int main () {
      
-     system ("cls");
+     cls();
      system ("color 9");
+
+     loadingBar();
      mainMenu();
 
     return 0;
@@ -31,43 +39,44 @@ using namespace std;
           int menu;
 
     do {
-      cout << " >>> SCORE STREAM <<< " << endl;
-      cout << "=------------------=" << endl;
-      cout << "| 1. Admin Panel   |" << endl;
-      cout << "| 2. Student Panel |" << endl;
-      cout << "| 3. Exit          |" << endl;
-      cout << "=------------------=" << endl;
+      nl(2); t(8); cout << "  >>> SCORE STREAM <<< " << endl;
+      nl(1); t(7); cout << "========================================" << endl;
+      t(8); cout << "=------------------=" << endl;
+      t(8); cout << "| 1. Admin Panel   |" << endl;
+      t(8); cout << "| 2. Student Panel |" << endl;
+      t(8); cout << "| 3. Exit          |" << endl;
+      t(8); cout << "=------------------=" << endl;
          
-      cout << "  >>  ";
+      nl(2); t(4); cout << "  >>  ";
       cin >> menu;
 
        switch (menu) {
 
         case 1:
 
-        system ("cls");
+        cls();
          adminLogin();
          break;
 
         case 2:
 
-        system ("cls");
+        cls();
          studentPanel();
          break;
 
         case 3:
         
-        system ("cls");
+        cls();
          cout << "Exiting..." << endl;
          break;
 
         default:
         
-        system ("cls");
+        cls();
          cout << "Invalid Option." << endl;
          cout << "Try again." << endl;
          sleep(1500);
-        system ("cls");
+        cls();
          break;
        }
     }while (menu < 1 || menu > 3); 
@@ -79,29 +88,30 @@ using namespace std;
           int userPasscode = 0;
 
    do {
-      cout << " ADMIN LOGIN " << endl;
-      cout << "  Enter The Passcode " << endl;
-      cout << "  >>  ";
+      nl(2); t(10); cout << "  ADMIN LOGIN " << endl;
+      nl(1); t(9); cout << "===============================" << endl;
+      nl(3); t(4); cout << "  Enter The Passcode " << endl;
+      nl(1); t(5); cout << "  >>  ";
 
       cin >> userPasscode;
 
        if (userPasscode == passCode) {
          
-        system ("cls"); 
+        cls(); 
          cout << "Login Successfully!" << endl;
          cout << "Please wait..." << endl;
          sleep(1500);
-        system ("cls");
+        cls();
 
           adminPanel ();
        }
        else {
         
-        system ("cls");
+        cls();
          cout << "Passcode not recognized." << endl;
          cout << "Try again." << endl;
          sleep(1500);
-        system ("cls");
+        cls();
        }
    }while(userPasscode != 2112);
  }
@@ -111,57 +121,58 @@ using namespace std;
           int adminMenu;
 
    do {
-      cout << " >>> ADMIN PANEL <<< " << endl;
-      cout << "=---------------------=" << endl;
-      cout << "| 1. Teacher Data     |" << endl;
-      cout << "| 2. Add Teacher Data |" << endl;
-      cout << "| 3. Student Data     |" << endl;
-      cout << "| 4. Add Student Data |" << endl;
-      cout << "| 5. Back             |" << endl;
-      cout << "=---------------------=" << endl;
+      nl(2); t(9); cout << "  >>> ADMIN PANEL <<< " << endl;
+      nl(1); t(8); cout << "=======================================" << endl;
+      t(9); cout << "=---------------------=" << endl;
+      t(9); cout << "| 1. Teacher Data     |" << endl;
+      t(9); cout << "| 2. Add Teacher Data |" << endl;
+      t(9); cout << "| 3. Student Data     |" << endl;
+      t(9); cout << "| 4. Add Student Data |" << endl;
+      t(9); cout << "| 5. Back             |" << endl;
+      t(9); cout << "=---------------------=" << endl;
 
-      cout << "  >>  ";
+      nl(2); t(4); cout << "  >>  ";
       cin >> adminMenu;
 
        switch (adminMenu) {
 
         case 1: 
         
-        system ("cls");
+        cls();
          cout << " 1. Teacher Data " << endl;
          break;
 
         case 2:
         
-        system ("cls");
+        cls();
          cout << " 2. Add Teacher Data" << endl;
          break;
 
         case 3:
         
-        system ("cls");
+        cls();
          cout << " 3. Student Data" << endl;
          break;
 
         case 4:
         
-        system ("cls");
+        cls();
          cout << " 4. Add Student Data" << endl;
          break;
 
         case 5:
          
-        system ("cls");
+        cls();
          mainMenu();
          break;
 
         default:
         
-        system ("cls");
+        cls();
          cout << "Invalid Option." << endl;
          cout << "Try again." << endl;
          sleep(1500);
-        system ("cls");
+        cls();
          break;
        }
    }while(adminMenu < 1 || adminMenu > 6);
@@ -172,43 +183,44 @@ using namespace std;
           int studentMenu;
 
    do {
-      cout << " >>> STUDENT PANEL <<< " << endl;
-      cout << "=------------------------=" << endl;
-      cout << "| 1. Checking The Result |" << endl;
-      cout << "| 2. School Update       |" << endl;
-      cout << "| 3. Back                |" << endl;
-      cout << "=------------------------=" << endl;
-          
-      cout << "  >>  ";
+      nl(2); t(8); cout << "  >>> STUDENT PANEL <<< " << endl;
+      nl(1); t(7); cout << "=========================================" << endl;
+      t(8); cout << "=------------------------=" << endl;
+      t(8); cout << "| 1. Checking The Result |" << endl;
+      t(8); cout << "| 2. School Update       |" << endl;
+      t(8); cout << "| 3. Back                |" << endl;
+      t(8); cout << "=------------------------=" << endl;
+           
+      nl(2); t(4); cout << "  >>  ";
       cin >> studentMenu;
 
        switch (studentMenu) {
 
         case 1: 
 
-        system ("cls");  
+        cls();  
          cout << " 1. Teacher Data" << endl;
          break;
 
         case 2:
         
-        system ("cls");
+        cls();
          cout << " 2. Add Teacher Data" << endl;
          break;
 
         case 3:
          
-        system ("cls"); 
+        cls(); 
          mainMenu();
          break;
 
         default:
 
-        system ("cls");
+        cls();
          cout << "Invalid Option." << endl;
          cout << "Try again." << endl;
          sleep(1500);
-        system ("cls");
+        cls();
          break;
        }
    }while(studentMenu < 1 || studentMenu > 4);
@@ -237,8 +249,61 @@ using namespace std;
        cout << " Attendance: " << endl;
        cin >> attendance; cout << endl;
  }
+ void cls () {
+
+   #ifdef _WIN32
+    system("cls");
+   #else
+    system("clear");
+   #endif
+ }
 
  void sleep (int ms) {
 
    this_thread::sleep_for(chrono::milliseconds(ms));
+ }
+
+ void loadingBar () {
+	
+	SetConsoleCP(450);
+    SetConsoleOutputCP(450);
+    int bar1 = 15, bar2 = 219;
+
+       nl(8); t(10); cout <<" LOADING";
+       nl(3); t(9);
+
+    for (int i=0; i<25; i++)
+       cout << (char)bar1;
+       cout <<"\r";t(9);
+       
+       for (int i=0; i<25; i++){
+
+        cout <<(char)bar2;
+        sleep(75);
+       }
+       
+    pause();
+    cls();
+}
+
+ void pause () {
+	
+	nl(3); t(8); cout << (char)1 <<" >>  ";
+    system("Pause");
+}
+
+ void nl (int n) {
+
+   for (int i=1; i<=n; i++) {
+
+     cout << endl;
+   }
+ }
+ 
+ void t (int n) {
+
+   for (int i=1; i<=n; i++) {
+
+     cout << "\t";
+   }
  }
