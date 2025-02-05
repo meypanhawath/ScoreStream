@@ -278,6 +278,7 @@ using namespace std;
 	
 	SetConsoleCP(450);
     SetConsoleOutputCP(450);
+    nl(8); t(8); cout << "   This program is being built by Raz." << endl;
     int bar1 = 15, bar2 = 219;
 
        nl(8); t(10); cout <<" LOADING";
