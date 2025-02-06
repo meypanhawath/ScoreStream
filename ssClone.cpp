@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <vector>
 #include <windows.h>
 #include <time.h>
 
@@ -31,6 +32,33 @@ using namespace std;
  void pause();
  void nl(int n);
  void t(int n);
+
+// Class Student
+ class student {
+    
+     int studentID;
+     string studentName;
+     int studentAge;
+     string studentGender;
+      
+      struct score {
+          
+          int math;
+          int physic;
+          int chemistry;
+          int attendance; 
+     } score;
+ };
+
+// Class Teacher
+ class teacher {
+
+     int teacherID;
+     string teacherName;
+     string gender;
+     string teacherSubject;
+     int teacherSalary;
+ };
 
 // Main Function
  int main () {
