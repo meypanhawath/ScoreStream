@@ -2,5 +2,3 @@ Raz,Math
 Star,Biology
 Hallow,Chemistry
 Wath,FullStack
-,
-,213
