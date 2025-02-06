@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <time.h>
 
+// Define Color Code
 #define RESET "\033[0m"
 #define RED "\033[91m"
 #define CYAN "\033[36m"
@@ -88,10 +89,9 @@ using namespace std;
 
         default:
         
-        cls();
          cout << RED;
-         cout << "Invalid Option." << endl;
-         cout << "Try again." << endl;
+         nl(2); t(4); cout << "Invalid Option." << endl;
+                t(4); cout << "Try again." << endl;
          sleep(1500);
          cout << BLUE;
         cls();
@@ -115,10 +115,9 @@ using namespace std;
 
        if (userPasscode == passCode) {
          
-        cls(); 
          cout << GREEN;
-         cout << "Login Successfully!" << endl;
-         cout << "Please wait..." << endl;
+         nl(2); t(4); cout << "Login Successfully!" << endl;
+                t(4); cout << "Please wait..." << endl;
          sleep(1500);
          cout << BLUE;
         cls();
@@ -127,10 +126,9 @@ using namespace std;
        }
        else {
         
-        cls();
          cout << RED;
-         cout << "Passcode not recognized." << endl;
-         cout << "Try again." << endl;
+         nl(2); t(4); cout << "Invalid Passcode." << endl;
+                t(4); cout << "Try again." << endl;
          sleep(1500);
          cout << BLUE;
         cls();
@@ -189,11 +187,10 @@ using namespace std;
          break;
 
         default:
-        
-        cls();
+      
          cout << RED;
-         cout << "Invalid Option." << endl;
-         cout << "Try again." << endl;
+         nl(2); t(4); cout << "Invalid Option." << endl;
+                t(4); cout << "Try again." << endl;
          sleep(1500);
          cout << BLUE;
         cls();
@@ -240,10 +237,9 @@ using namespace std;
 
         default:
 
-        cls();
          cout << RED;
-         cout << "Invalid Option." << endl;
-         cout << "Try again." << endl;
+         nl(2); t(4); cout << "Invalid Option." << endl;
+                t(4); cout << "Try again." << endl;
          sleep(1500);
          cout << BLUE;
         cls();
